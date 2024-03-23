@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartTech</title>
+
+    <!-- leaflet css  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left: 340px;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
+
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+      }
+
+      .navbar-left {
+        flex: 1;
+      }
+
+      .navbar-center {
+        flex: 2;
+        text-align: center;
+      }
+
+      .navbar-right {
+        flex: 1;
+        text-align: right;
+      }
+
+      .donate-btn {
+        background-color: #ff6347;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .donate-btn:hover {
+        background-color: #ff4839;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .form-row {
+        margin-bottom: 15px;
+        overflow: hidden;
+      }
+      .form-row label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .form-row input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        padding: 8px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        position: absolute;
+        width: 100%;
+      }
+      .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px;
+  }
+  .card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .card-content {
+    padding: 20px;
+  }
+  .card-content h2 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+  .card-content p {
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a href="#"><img src="logo.png" alt="SmartTech" /></a>
+      </div>
+      <div class="navbar-right">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('waste') }}">Waste Management</a>
+        <a href="{{ url_for('transport') }}">Transportaion</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('service') }}">Services</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="card" onclick="recycle()" style="cursor: pointer;">
+        <img src="../static/photo/re.jpg" alt="Placeholder Image">
+        <div class="card-content">
+          <h2>Recyclable waste</h2>
+        </div>
+      </div>
+      <div class="card" onclick="norecycle()" style="cursor: pointer;">
+        <img src="../static/photo/nore.jpg" alt="Placeholder Image">
+        <div class="card-content">
+          <h2>No Recyclable</h2>
+        </div>
+      </div>
+      <div class="card" onclick="recycle()" style="cursor: pointer;">
+        <img src="../static/photo/re.jpg" alt="Placeholder Image">
+        <div class="card-content">
+          <h2>
+          <a href={{ url_for('output')}}>Check the report</a>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="footer">&copy; 2024 SmartTech. All rights reserved.</div>
+  </body>
+</html>
+
+
